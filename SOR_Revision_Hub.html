@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SOR1 HSC Revision Hub — Wenona</title>
+<title>SOR1 HSC Revision Hub</title>
 <style>
   :root{
     --green:#2f4d3a; --green-dark:#1c2c22; --green-mid:#3d6249; --gold:#efd99a; --gold-dark:#c9a24a;
@@ -153,15 +153,15 @@
   .name-widget{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px;font-size:.85rem;}
   .name-widget input{border:1px solid #e2ddd0;border-radius:8px;padding:6px 10px;font-size:.85rem;font-family:inherit;}
   .name-widget .name-greeting{font-weight:700;color:#22362a;background:#eef4ec;border-radius:8px;padding:6px 12px;}
-  .name-widget button.name-edit-btn{background:none;border:1px solid #e2ddd0;border-radius:8px;padding:4px 10px;font-size:.78rem;cursor:pointer;color:#22362a;}
-  .name-widget button.name-edit-btn:hover{background:#eef4ec;}
+  .name-widget button.name-edit-btn{background:none;border:1px solid rgba(255,255,255,.6);border-radius:8px;padding:4px 10px;font-size:.78rem;font-weight:700;cursor:pointer;color:#fff;}
+  .name-widget button.name-edit-btn:hover{background:#eef4ec;color:#22362a;border-color:#eef4ec;}
   @media print{ .name-widget{display:none!important;} }
 </style>
 </head>
 <body>
 <header class="app-header">
   <div class="wrap">
-    <div class="kicker">Wenona · HSC Studies of Religion I</div>
+    <div class="kicker">HSC Studies of Religion I</div>
     <h1>SOR1 Revision Hub</h1>
     <div class="header-name-row">
       <div class="name-widget" id="nameWidget">
@@ -172,7 +172,7 @@
       <span class="header-tagline">&mdash; Everything for your exam prep in one place</span>
     </div>
     <div class="badges">
-      <a class="badge" href="SOR_Content_Flashcards.html">&times;351 Flashcards</a>
+      <a class="badge" href="SOR_Content_Flashcards.html">&times;357 Flashcards</a>
       <a class="badge" href="SOR_MC_Revision_Bank.html">&times;476 MC Qs</a>
       <a class="badge" href="SOR_Q11_Practice.html">&times;24 Q11s</a>
       <a class="badge" href="SOR_Buddhism_StudyPack.html#content">&times;7 Buddhism Banks</a>
@@ -188,7 +188,7 @@
 <main>
 
 <section id="start" class="panel active">
-  <div class="howto" data-personalize><b>Start here:</b> see how the suite fits together below, then rate how you're feeling, work through strategy notes, recall practice and the area overview. The full toolkit is further down this page.</div>
+  <div class="howto" data-personalize><b>Start here:</b> see how the suite fits together below, rate how you're feeling, then jump into recall practice or the area overview. Exam strategy tips have their own tab now.</div>
 
   <h2 class="section-title">How the suite fits together</h2>
   <div class="overview-card">
@@ -214,9 +214,6 @@
     <div class="recommendation-box" id="whereRecommendation"><strong>Start by rating each area.</strong><p class="small" style="color:var(--muted);margin:4px 0 0;">Your three lowest ratings become your recommended priorities.</p></div>
   </div>
 
-  <h2 class="section-title">Strategy</h2>
-  <div class="strategy-grid" id="strategyGrid"></div>
-
   <h2 class="section-title">Recall practice</h2>
   <div class="card soft">
     <p>Recall practice ties the tools together: flip through Flashcards (its own page, linked in the header), free-recall with a timed Quick Checker, then jump into the Quick Quiz to test whether it stuck.</p>
@@ -224,11 +221,17 @@
       <a class="action-btn" href="SOR_Content_Flashcards.html">Open Flashcards</a>
       <button class="action-btn secondary" data-open-tab="brain" type="button">Open Quick Checker</button>
       <button class="action-btn secondary" data-open-tab="quiz" type="button">Open Quick Quiz</button>
+      <button class="action-btn secondary" data-open-tab="strategy" type="button">Open Strategy</button>
     </div>
   </div>
 
   <h2 class="section-title">Revision tools</h2>
   <div class="tile-grid" id="tileGrid"></div>
+</section>
+
+<section id="strategy" class="panel">
+  <div class="howto"><b>How to use this:</b> exam-technique notes drawn from the strategy documents shared with this cohort — general exam strategy, Multiple Choice technique, writing a strong Q11, and SLV&ndash;BRE literacy. Read through once, then revisit before each practice paper.</div>
+  <div class="strategy-grid" id="strategyGrid"></div>
 </section>
 
 <section id="brain" class="panel">
@@ -278,7 +281,7 @@
 </section>
 
 </main>
-<footer>Wenona SOR1 revision suite · built for offline / SharePoint use · not affiliated with NESA</footer>
+<footer>SOR1 revision suite · built for offline / SharePoint use · not affiliated with NESA</footer>
 
 <script>
 (function(){
@@ -289,12 +292,11 @@
   // =========================================================================
   var TABS = [
     {key:"start", label:"Start Here", type:"tab"},
+    {key:"strategy", label:"Strategy", type:"tab"},
     {key:"planner", label:"6-Week Planner", type:"link", href:"SOR_SixWeek_HSCSuccessBluePrint_Planner.html"},
     {key:"brain", label:"Quick Checker", type:"tab"},
     {key:"quiz", label:"Quick Quiz", type:"tab"},
     {key:"flashhub", label:"Flashcards", type:"link", href:"SOR_Content_Flashcards.html"},
-    {key:"terminology", label:"Terminology", type:"link", href:"SOR_Terminology.html"},
-    {key:"reference", label:"SLV", type:"link", href:"SOR_Detail_Bank.html"},
     {key:"exambuilder", label:"Build an Exam", type:"link", href:"SOR_Exam_Builder.html"}
   ];
   var tabsEl = document.getElementById("tabs");
@@ -421,9 +423,9 @@
 
   // =========================================================================
   // STRATEGY SECTION: summarised from the 7 uploaded strategy documents
-  // (Components of an 8-mark response, Exam Strategy Tips, Wenona SOR
-  // Multiple Choice strategies, Wenona SOR Literacy skills for Q11, and
-  // Wenona SOR SLV-BRE) — Buddhism and Judaism's own exam-technique material
+  // (Components of an 8-mark response, Exam Strategy Tips, SOR
+  // Multiple Choice strategies, SOR Literacy skills for Q11, and
+  // SOR SLV-BRE) — Buddhism and Judaism's own exam-technique material
   // (marker feedback, sourcing/pairing) lives in their own study pack pages
   // rather than being summarised here.
   // =========================================================================
@@ -434,28 +436,28 @@
         "For a holistic essay question, always use exactly TWO significant aspects.",
         "Plan an essay lightly, in the writing booklet: define the directive, list body topics, shorthand any quotes you want to use.",
         "Short answers: write roughly marks × 3 lines (3 marks ≈ 10 lines, 5 marks ≈ 16 lines, 7 marks ≈ 22 lines); bullet points are acceptable if you're running out of time."
-      ], src:"Exam Strategy Tips (Wenona, with Dr Batten)"},
+      ], src:"Exam Strategy Tips (with Dr Batten)"},
     {title:"Multiple Choice technique",
       items:[
         "If a question looks easy, it probably is — don't overthink it. Read, choose the most correct answer, then check by eliminating the other three.",
         "Harder questions (usually the back half of the paper) often reduce to a 50/50 once you eliminate two clearly wrong options.",
         "For 'Statement 1 / Statement 2' questions, assess each statement completely and separately before combining them.",
         "Never leave a blank response — always select an answer for every question."
-      ], src:"Wenona SOR Multiple Choice — Some strategies"},
+      ], src:"SOR Multiple Choice — Some strategies"},
     {title:"Writing a Q11 (5-mark short answer)",
       items:[
         "Answer the question, engage with any stimulus at least 3 times, write about 5 sentences full of detail and short examples, then wrap up the answer.",
         "Target length: about 150 words in one tightly packed paragraph.",
         "If the question is 'funkified' (worded unusually), adapt your known examples using the language of the question rather than abandoning your prepared content.",
         "Strong terminology is one of the most reliable ways to lift a Q11 response."
-      ], src:"Wenona SOR — Literacy skills for Q11"},
+      ], src:"SOR — Literacy skills for Q11"},
     {title:"SLV–BRE: adding ‘wow’ detail",
       items:[
         "S = Sacred texts, L = Living/dynamic, V = Variants — the three ‘must haves’ in every 5+ mark response.",
         "B = Beliefs, R = Rituals, E = Ethics — bonus items to weave into a response about a different primary topic.",
         "Quote density scales with marks: 2–3 marker = 0–1 quotes, 4–5 marker = 1–2 quotes, 6+ marker = 2–3 quotes.",
         "Show the 'living/dynamic' aspect with examples from the last ~10 years, and always name the relevant variants (e.g. Buddhism: Theravada/Mahayana/Vajrayana; Judaism: Orthodox/Conservative/Progressive)."
-      ], src:"SLV-BRE and other strong literacy (Wenona SOR)"}
+      ], src:"SLV-BRE and other strong literacy (SOR)"}
   ];
   document.getElementById("strategyGrid").innerHTML = STRATEGY_CARDS.map(function(c){
     return '<div class="card strategy-card'+(c.wide?" wide":"")+'"><h3>'+c.title+'</h3><ul>'+
